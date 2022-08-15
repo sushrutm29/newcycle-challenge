@@ -1,9 +1,14 @@
-const { Pool, Client } = require('pg');
+const { Pool } = require('pg');
 
-const pool = new Pool({
-    user: 'dbuser',
-    host: 'database.server.com',
-    database: 'mydb',
-    password: 'secretpassword',
-    port: 3211,
-})
+const connectionOptions = {
+    user: process.env.POSTGRES_USER,
+    host: process.env.POSTGRES_HOST,
+    database: process.env.POSTGRES_DATABASE,
+    password: process.env.POSTGRES_PASSWORD,
+    port: parseInt(process.env.POSTGRES_PORT)
+};
+
+console.log("Connecting to databae...");
+const pool = new Pool(connectionOptions);
+
+module.exports = pool;

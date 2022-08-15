@@ -1,9 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const iframeUrl = require('../config/metabase_connection');
 
 router.get('/analytics', async (req, res) => {
     try {
         res.status(200).render("pages/analytics", {
+            iframeUrl: iframeUrl,
             partial: "analytics-scripts"
         });
     } catch (error) {

@@ -8,7 +8,7 @@ const connectionOptions = {
     port: parseInt(process.env.POSTGRES_PORT)
 };
 
-console.log("Connecting to databae...");
+console.log("Connecting to database...");
 const pool = new Pool(connectionOptions);
 
 module.exports = pool;

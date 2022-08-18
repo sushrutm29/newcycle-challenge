@@ -1,17 +1,19 @@
 <div class="transfer-body">
-    <form id="transfer-form" action="/create" method="POST">
+    <form id="transfer-form" action="/transfer" method="POST">
         <div class="form-group">
             <label for="item-select-input">Item</label>
-            <select class="form-control" id="item-select-input">
-                <option value="item-1">Item 1</option>
-                <option value="item-1">Item 2</option>
+            <select name="itemName" class="form-control" id="item-select-input">
+                {{#each items}}
+                    <option value={{this.name}}>{{this.name}}</option>
+                {{/each}}
             </select>
         </div>
         <div class="form-group">
             <label for="item-select-input">Owner</label>
-            <select class="form-control" id="owner-select-input">
-                <option value="owner-1">Owner 1</option>
-                <option value="owner-1">Owner 2</option>
+            <select name="ownerName" class="form-control" id="owner-select-input">
+                {{#each users}}
+                    <option value={{this.name}}>{{this.name}}</option>
+                {{/each}}
             </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

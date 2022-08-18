@@ -6,16 +6,24 @@ Postgres, Metabase, Node.js
 
 # Steps to Run
 1. Install packages
- ``` npm install ```
+ ``` 
+ npm install 
+ ```
 
 2. Run metabase jar from its directory
-``` java -jar metabase.jar ```
+``` 
+java -jar metabase.jar 
+```
 
 3. Create and seed database
-``` npm run seed ```
+``` 
+npm run seed 
+```
 
 4. Run server
-``` npm start ```
+``` 
+npm start 
+```
 
 # Notes (important)
 1. Database must be named itemtracker

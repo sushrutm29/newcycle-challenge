@@ -14,12 +14,12 @@ const moment = require('moment');
         await pool.query('DROP TABLE IF EXISTS analytics');
         await pool.query('CREATE TABLE users('+
             'id INT GENERATED ALWAYS AS IDENTITY UNIQUE,'+
-            'name VARCHAR(50) NOT NULL'+
+            'name VARCHAR(50) NOT NULL UNIQUE'+
         ')');
 
         await pool.query('CREATE TABLE items('+
             'id INT GENERATED ALWAYS AS IDENTITY UNIQUE,'+
-            'name VARCHAR(50) NOT NULL,'+
+            'name VARCHAR(50) NOT NULL UNIQUE,'+
             'owner_id INT NOT NULL,'+
             'PRIMARY KEY(id),'+
             'CONSTRAINT fk_owner '+
@@ -51,8 +51,8 @@ const moment = require('moment');
 
         //Insert some sample analytics
         let datePtr, daysAgo;
-        for(let i=0; i<500; i++){
-            daysAgo = Math.floor(Math.random() * 60);
+        for(let i=0; i<200; i++){
+            daysAgo = Math.floor(Math.random() * 50);
             datePtr = moment().subtract(daysAgo, 'days').format('MMDDYYYY');
             await pool.query(`INSERT INTO analytics(type, occurred_at) VALUES('item_creation', TO_TIMESTAMP('${datePtr}', 'MMDDYYYY')) RETURNING id`);
         }

@@ -1,0 +1,21 @@
+<div class="transfer-body">
+    <form id="transfer-form" action="/transfer" method="POST">
+        <div class="form-group">
+            <label for="item-select-input">Item</label>
+            <select name="itemName" class="form-control" id="item-select-input">
+                {{#each items}}
+                    <option value={{this.name}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="item-select-input">Owner</label>
+            <select name="ownerName" class="form-control" id="owner-select-input">
+                {{#each users}}
+                    <option value={{this.name}}>{{this.name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>    

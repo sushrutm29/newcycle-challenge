@@ -11,4 +11,16 @@ router.get('/create', async (req, res) => {
     }
 });
 
+router.post('/create', async (req, res) => {
+    try {
+        const itemName = xss(req.body.item, {
+            whiteList: [], 
+            stripIgnoreTag: true,
+            stripIgnoreTagBody: []
+        });
+    } catch (error) {
+        res.status(404).json({Error: "Something went wrong!"});
+    }
+});
+
 module.exports = router;

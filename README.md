@@ -1,5 +1,4 @@
-# newcycle-challenge
-Tech challenge for Newcycle interview (by Sushrut)
+# Item creation and ownership transfer analytics app
 
 # Requirements
 Postgres, Metabase, Node.js
